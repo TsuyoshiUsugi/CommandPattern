@@ -12,12 +12,16 @@ public class CommandManager : MonoBehaviour
         {
             if (_instance == null)
             {
+				//キャストだとキャスト出来ない場合エラーが出るがこの場合はnullがかえる。パフォーマンス的にもいいらしい？
                 return FindObjectOfType<CommandManager>() as CommandManager;
             }
             return _instance;
         }
     }
 
+	//このやり方はプログラマー的にはキモイらしい。クラスの方が見やすい
+	//そもそもこのようにした理由は同じフレームで二つのコマンドが入力された際、ただのICommandだと次のフレームに同フレームの
+	//入力が持ち越されてしまうため
 	private List<List<ICommand>> _commandBuffer = new();
 
 	public bool Locked;
