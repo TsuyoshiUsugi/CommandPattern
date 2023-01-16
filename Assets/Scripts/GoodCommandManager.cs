@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+/// <summary>
+/// こちらの方を使う場合、palyerの最終行を変えること
+/// </summary>
 public class GoodCommandManager : MonoBehaviour
 {
 	private static GoodCommandManager _instance;
